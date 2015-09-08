@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Euler\Question0011.cs" />
+    <Compile Include="Euler\Question0010.cs" />
+    <Compile Include="Euler\Question0009.cs" />
+    <Compile Include="Euler\Question0008.cs" />
     <Compile Include="Euler\Question0006.cs" />
     <Compile Include="Euler\Question0004.cs" />
     <Compile Include="Euler\Question0001.cs" />

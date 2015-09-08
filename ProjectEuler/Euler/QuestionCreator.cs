@@ -7,24 +7,13 @@ using System.Threading.Tasks;
 namespace Euler {
 	public class QuestionCreator {
 		public static QuestionRoot Create(int num) {
-			switch (num) {
-				case 1:
-					return new Euler.Question0001();
-				case 2:
-					return new Euler.Question0002();
-				case 3:
-					return new Euler.Question0003();
-				case 4:
-					return new Euler.Question0004();
-				case 5:
-					return new Euler.Question0005();
-				case 6:
-					return new Euler.Question0006();
-				case 7:
-					return new Euler.Question0007();
-				default:
-					return new QuestionRoot();
-			}
+			string name = string.Format("Euler.Question{0:0000}", num);
+			Type customerType = Type.GetType(name);
+
+			if (customerType == null)
+				return new QuestionRoot();
+			else
+				return (QuestionRoot)Activator.CreateInstance(customerType);
 		}
 	}
 }

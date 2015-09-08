@@ -68,7 +68,8 @@
 			// 
 			// tbQuestion
 			// 
-			this.tbQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.tbQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tbQuestion.Location = new System.Drawing.Point(12, 72);
 			this.tbQuestion.Multiline = true;
@@ -87,6 +88,7 @@
 			// 
 			// label3
 			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(12, 233);
 			this.label3.Name = "label3";
@@ -96,8 +98,7 @@
 			// 
 			// tbAnswer
 			// 
-			this.tbAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+			this.tbAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.tbAnswer.Location = new System.Drawing.Point(14, 248);
 			this.tbAnswer.MaxLength = 0;
@@ -118,7 +119,6 @@
 			this.Controls.Add(this.btnSolve);
 			this.Controls.Add(this.numericUpDown1);
 			this.Controls.Add(this.label1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Name = "MainForm";
 			this.Text = "프로젝트 오일러";
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

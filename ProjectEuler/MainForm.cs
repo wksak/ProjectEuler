@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,15 @@ namespace 프로젝트_오일러 {
         }
 
 		private void btnSolve_Click(object sender, EventArgs e) {
-			tbAnswer.Text = question.GetAnswer();
+			Stopwatch watch = new Stopwatch();
+			watch.Start();
+			string result = question.GetAnswer();
+			watch.Stop();
+
+			TimeSpan span = watch.Elapsed;
+			tbAnswer.Text = string.Format("실행 시간 : {0}", span.ToString(@"mm\:ss\.ffff"));
+			tbAnswer.Text += Environment.NewLine;
+			tbAnswer.Text += result;
 		}
 	}
 }
