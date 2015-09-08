@@ -96,16 +96,21 @@
 			// 
 			// tbAnswer
 			// 
-			this.tbAnswer.Location = new System.Drawing.Point(35, 230);
+			this.tbAnswer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbAnswer.Location = new System.Drawing.Point(14, 248);
+			this.tbAnswer.MaxLength = 0;
+			this.tbAnswer.Multiline = true;
 			this.tbAnswer.Name = "tbAnswer";
-			this.tbAnswer.Size = new System.Drawing.Size(241, 21);
+			this.tbAnswer.Size = new System.Drawing.Size(262, 92);
 			this.tbAnswer.TabIndex = 5;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(289, 273);
+			this.ClientSize = new System.Drawing.Size(289, 352);
 			this.Controls.Add(this.tbAnswer);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);

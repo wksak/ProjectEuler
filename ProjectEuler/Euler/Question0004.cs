@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,29 @@ namespace Euler {
 		}
 
 		public override string GetAnswer() {
-			int result = 0;
+			string result = "실패";
+			int maxValue = 0;
 
-			return result.ToString();
+			for (int i = 999; i > 99; i--) {
+				for (int j = 999; j >= i; j--) {
+					if (CheckPalindrome(i, j)) {
+						if (i * j > maxValue) {
+							result = string.Format("{0} * {1} = {2}", i, j, i * j);
+							maxValue = i * j;
+						}
+					}
+				}
+			}
+			return result;
+		}
+
+		private bool CheckPalindrome(int i, int j) {
+			int check = i * j;
+
+			string tmp = check.ToString();
+			string tmp2 = new string(tmp.Reverse().ToArray());
+
+			return string.Compare(tmp, tmp2) == 0 ? true : false;
 		}
 	}
 }
