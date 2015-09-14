@@ -16,7 +16,7 @@ namespace Euler {
 		public override string GetAnswer() {
 			long result = 0;
 			long target = 600851475143;
-			//target = 16;
+			target = 6;
 
 			int i=1;
 			while (i++ < target) {

@@ -4,6 +4,91 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Euler.Q0011;
+
+namespace Euler.Q0011 {
+	public enum Direction { 수평, 수직, 윗대각선, 아랫대각선 }
+
+	public class DataItem {
+		public Direction Direction { get; set; }
+
+		public List<int> Datas { get; set; }
+
+		public int X { get; set; }
+		public int Y { get; set; }
+
+		public int Value {
+			get {
+				int result = 1;
+				foreach (int data in this.Datas) {
+					result *= data;
+				}
+				return result;
+			}
+		}
+
+		public DataItem() {
+			this.Datas = new List<int>();
+		}
+
+		public override string ToString() {
+			StringBuilder str = new StringBuilder();
+			str.AppendFormat("x({0}, y({1})에서 {2}방향의 숫자( ", this.X, this.Y, this.Direction);
+			foreach (int data in Datas)
+				str.AppendFormat("{0} ", data);
+			str.AppendFormat(")의 값 : {0}", this.Value);
+			return str.ToString();
+		}
+
+		static public DataItem Creator(Direction dir, int[,] buffer, int x, int y) {
+			switch (dir) {
+				case Direction.수직:
+					if (buffer.GetLength(1) < y + 4)
+						return null;
+					break;
+				case Direction.수평:
+					if (buffer.GetLength(0) < x + 4)
+						return null;
+					break;
+				case Direction.아랫대각선:
+					if ((buffer.GetLength(0) < x + 4) || (buffer.GetLength(1) < y + 4))
+						return null;
+					break;
+				case Direction.윗대각선:
+					if ((buffer.GetLength(0) < x + 4) || y < 3)
+						return null;
+					break;
+			}
+
+			try {
+				DataItem result = new DataItem();
+				result.Direction = dir;
+				result.X = x;
+				result.Y = y;
+				for (int i = 0; i < 4; i++) {
+					switch (dir) {
+						case Direction.수직:
+							result.Datas.Add(buffer[x, y + i]);
+							break;
+						case Direction.수평:
+							result.Datas.Add(buffer[x + i, y]);
+							break;
+						case Direction.아랫대각선:
+							result.Datas.Add(buffer[x + i, y + i]);
+							break;
+						case Direction.윗대각선:
+							result.Datas.Add(buffer[x + i, y - i]);
+							break;
+					}
+				}
+				return result;
+			}
+			catch (Exception) {
+				return null;
+			}
+		}
+	}
+}
 
 namespace Euler {
 	public class Question0011 : QuestionRoot {
@@ -35,11 +120,19 @@ namespace Euler {
 				{ 01, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 01, 89, 19, 67, 48 }
 			};
 
-			int 수평값, 수직값, 윗대각선값, 아랫대각선값;
-			int tmp = 0;
-			
+			List<DataItem> items = new List<DataItem>();
+			foreach (Direction dir in Enum.GetValues(typeof(Direction))) {
+				for (int i = 0; i < datas.GetLength(0); i++) {
+					for (int j = 0; j < datas.GetLength(1); j++) {
+						DataItem item = DataItem.Creator(dir, datas, i, j);
+						if (item != null)
+							items.Add(item);
+	                }
+				}
+			}
 
-			return "";
+			DataItem max = items.OrderByDescending(o => o.Value).FirstOrDefault();
+			return max.ToString();
         }
 	}
 }
