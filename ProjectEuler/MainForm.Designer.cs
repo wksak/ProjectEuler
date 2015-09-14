@@ -74,6 +74,7 @@
 			this.tbQuestion.Location = new System.Drawing.Point(12, 72);
 			this.tbQuestion.Multiline = true;
 			this.tbQuestion.Name = "tbQuestion";
+			this.tbQuestion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.tbQuestion.Size = new System.Drawing.Size(265, 140);
 			this.tbQuestion.TabIndex = 3;
 			// 
@@ -104,6 +105,7 @@
 			this.tbAnswer.MaxLength = 0;
 			this.tbAnswer.Multiline = true;
 			this.tbAnswer.Name = "tbAnswer";
+			this.tbAnswer.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.tbAnswer.Size = new System.Drawing.Size(262, 92);
 			this.tbAnswer.TabIndex = 5;
 			// 

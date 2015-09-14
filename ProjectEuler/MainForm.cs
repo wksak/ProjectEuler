@@ -16,9 +16,16 @@ namespace 프로젝트_오일러 {
 		public MainForm() {
 			InitializeComponent();
 
-			numericUpDown1.Value = 1;
 			numericUpDown1.Minimum = 1;
-        }
+
+			QuestionRoot lastQuestion = new QuestionRoot();
+			for (int i=1; i<500; i++) {
+				lastQuestion = QuestionCreator.Create(i);
+				if (lastQuestion.GetType().Name != "QuestionRoot") {
+					numericUpDown1.Value = i;
+				}
+			}
+		}
 
 		private void numericUpDown1_ValueChanged(object sender, EventArgs e) {
 			question = QuestionCreator.Create((int)numericUpDown1.Value);

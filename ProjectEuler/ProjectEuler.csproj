@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Euler\Question0016.cs" />
+    <Compile Include="Euler\Question0015.cs" />
     <Compile Include="Euler\Question0014.cs" />
     <Compile Include="Euler\Question0013.cs" />
     <Compile Include="Euler\Question0012.cs" />
