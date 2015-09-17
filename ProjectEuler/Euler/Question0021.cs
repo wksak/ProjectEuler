@@ -20,7 +20,75 @@ a, b는 친화쌍이라 하고 a와 b를 각각 친화수(우애수)라고 합�
 		}
 
 		public override string GetAnswer() {
-			return "해결중";
+			HashSet<int> datas = new HashSet<int>();
+
+			StringBuilder str = new StringBuilder();
+
+			for (int i = 2; i <= 10000; i++) {
+				int d1 = functionD(i);
+				if (i == functionD(d1) && i != d1) {
+					datas.Add(i);
+					str.AppendFormat("친화수 쌍 : {0}, {1}", i, d1);
+					str.AppendLine();
+				}
+			}
+
+			str.AppendFormat("친화수 ({0}개) : ", datas.Count);
+			foreach(int data in datas) {
+				str.AppendFormat("{0}, ", data);
+			}
+			str.AppendLine();
+			str.AppendFormat("총합 : {0}", datas.Sum());
+
+			return str.ToString();
 		}
+
+		private int functionD(int val) {
+			List<Item> measure = GetMeasure(val);
+			int measureTotal = GetMeasureTotal(1, measure, 0);
+			return measureTotal - val;
+		}
+
+		private int GetMeasureTotal(int parent, List<Item> measure, int pos) {
+			if (measure.Count <= pos) {
+				return parent;
+			}
+
+			int result = 0;
+
+			Item item = measure[pos];
+			for (int i = 0; i <= item.count; i++) {
+				result += GetMeasureTotal(parent * (int)Math.Pow(item.key, i), measure, pos + 1);
+			}
+
+			return result;
+		}
+
+		private List<Item> GetMeasure(int val) {
+			List<Item> result = new List<Item>();
+
+			int i=1;
+			Item tmp = null;
+			while (i++ < val) {
+				if (val % i == 0) {
+					tmp = new Item();
+					tmp.key = i;
+					result.Add(tmp);
+				}
+					
+
+                while (val % i == 0) {
+					tmp.count++;
+					val = val / i;
+				}
+			}
+
+			return result;
+		}
+	}
+
+	public class Item {
+		public int key { get; set; }
+		public int count { get; set; }
 	}
 }
