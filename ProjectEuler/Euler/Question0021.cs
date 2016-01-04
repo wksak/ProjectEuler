@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Euler.Q0021;
 
 namespace Euler {
 	public class Question0021 : QuestionRoot {
@@ -86,7 +87,9 @@ a, b는 친화쌍이라 하고 a와 b를 각각 친화수(우애수)라고 합�
 			return result;
 		}
 	}
+}
 
+namespace Euler.Q0021 {
 	public class Item {
 		public int key { get; set; }
 		public int count { get; set; }

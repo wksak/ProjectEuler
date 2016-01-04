@@ -30,10 +30,9 @@ names.txt에 들어있는 모든 이름의 점수를 계산해서 더하면 얼�
 
 			items = items.OrderBy(o => o.Name).ToList();
 			int pos = 1;
+			long sum = 0;
 			foreach (DataItem item in items)
-				item.Position = pos++;
-
-			long sum = items.Sum(s => (long)s.LastValue);
+				sum += item.NameValue * pos++;
 
 			return sum.ToString();
 		}
@@ -47,15 +46,8 @@ names.txt에 들어있는 모든 이름의 점수를 계산해서 더하면 얼�
 namespace Euler.Q0022 {
 	public class DataItem {
 		public string Name { get; set; }
+
 		public long NameValue { get; set; }
-
-		public long Position { get; set; }
-
-		public long LastValue {
-			get {
-				return NameValue * Position;
-			}
-		}
 
 		public DataItem(string name) {
 			Name = name;
