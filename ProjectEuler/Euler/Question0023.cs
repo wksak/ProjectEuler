@@ -5,7 +5,6 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using Euler.Q0022;
 using Euler.Q0023;
 
 namespace Euler {

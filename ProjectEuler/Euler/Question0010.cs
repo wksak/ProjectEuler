@@ -30,16 +30,7 @@ namespace Euler {
 				}
 
 				if (isPrime) {
-					for (int j = primes.Last(); j < i; j++) {
-						if (i % j == 0) {
-							isPrime = false;
-							break;
-						}
-					}
-
-					if (isPrime) {
-						primes.Add(i);
-					}
+					primes.Add(i);
 				}
 
 				i += 2;

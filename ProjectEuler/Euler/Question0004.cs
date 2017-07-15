@@ -27,6 +27,7 @@ namespace Euler {
 					}
 				}
 			}
+
 			return result;
 		}
 
