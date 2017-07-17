@@ -71,6 +71,7 @@
     <Compile Include="Euler\Question0005.cs" />
     <Compile Include="Euler\Question0007.cs" />
     <Compile Include="Euler\Question0024.cs" />
+    <Compile Include="Euler\Question0025.cs" />
     <Compile Include="Euler\QuestionCreator.cs" />
     <Compile Include="Euler\QuestionRoot.cs" />
     <Compile Include="MainForm.cs">
